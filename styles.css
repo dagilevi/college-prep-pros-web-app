@@ -1,5 +1,5 @@
 
-/* Updated CSS */
+/* Updated CSS for Mobile-First Design */
 
 /* Global Resets */
 * {
@@ -15,92 +15,88 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: black; /* Keep black background */
+    background-color: black; /* Black background for the app */
     font-family: 'Roboto', sans-serif; /* Modern font */
-    line-height: 1.6;
+    line-height: 1.5;
     color: #f0f0f0;
 }
 
-/* Containers */
+/* Logo Styling */
+.logo {
+    max-width: 60%; /* Adjust size for mobile */
+    max-height: 60%; /* Ensure it fits small screens */
+    margin-bottom: 20px;
+}
+
+/* Container for App Content */
 .container {
-    width: calc(100% - 20px); /* Avoid overflowing */
-    max-width: 100%;
-    background-color: #444;
+    width: calc(100% - 30px); /* Prevent overflow with padding */
+    max-width: 420px; /* Limit to typical mobile app width */
+    background-color: #333;
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
     padding: 20px;
     text-align: center;
 }
 
-/* Headers */
+/* Headings */
 h1 {
-    font-size: 2.5rem;
-    color: #ffdd57; /* Golden highlight */
-    margin-bottom: 20px;
+    font-size: 1.8rem; /* Scaled for mobile readability */
+    color: #ffdd57;
+    margin-bottom: 15px;
 }
 
 p {
     font-size: 1rem;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 /* Buttons */
-button {
-    background-color: #FFD700; /* Gold color */
+.button {
+    background-color: #FFD700;
     color: black;
     border: none;
-    padding: 12px 30px;
+    padding: 10px 20px;
     font-size: 1rem;
-    border-radius: 8px;
+    border-radius: 6px;
     cursor: pointer;
+    width: 90%;
+    max-width: 280px;
     margin: 10px auto;
-    width: 100%;
-    max-width: 300px;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Subtle shadow */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-button:hover {
+.button:hover {
     background-color: #ffcc00;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Additional Visual Elements */
+/* Divider */
 .divider {
-    width: 80%;
+    width: 90%;
     height: 1px;
     background: #555;
-    margin: 20px auto;
+    margin: 15px auto;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 1.8rem;
-    }
-
-    button {
-        font-size: 0.9rem;
-        padding: 10px 20px;
-    }
-
-    .container {
-        padding: 15px;
-    }
-}
-
+/* Responsive Design for Mobile */
 @media (max-width: 480px) {
     h1 {
         font-size: 1.5rem;
     }
 
-    button {
-        font-size: 0.8rem;
-        padding: 8px 15px;
+    .logo {
+        max-width: 50%; /* Slightly smaller for compact screens */
     }
 
     .container {
-        width: 95%;
-        padding: 10px;
+        width: calc(100% - 20px);
+        padding: 15px;
+    }
+
+    .button {
+        font-size: 0.9rem;
+        padding: 8px 15px;
     }
 }
