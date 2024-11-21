@@ -1,7 +1,7 @@
 
-/* Ultimate Fix for Horizontal Scrolling */
+/* Ultimate Horizontal Scrolling Fix */
 
-/* Global Resets */
+/* Reset All Margins, Paddings, and Ensure Proper Box Sizing */
 * {
     margin: 0;
     padding: 0;
@@ -9,7 +9,7 @@
 }
 
 html, body {
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-x: hidden; /* Ensure no horizontal scrolling */
     width: 100%;
     height: 100%;
     display: flex;
@@ -21,25 +21,33 @@ html, body {
     color: #f0f0f0;
 }
 
+/* Ensure All Elements Fit Within the Viewport */
+.container, .logo, .button, h1, p, img, iframe, input, div {
+    max-width: 100%;
+    overflow: hidden; /* Prevent any overflow */
+    display: block; /* Remove inline spacing issues */
+}
+
 /* Logo Styling */
 .logo {
-    max-width: 50%; /* Optimized size for mobile */
+    width: 50%; /* Mobile-appropriate size */
+    max-width: 100%; /* Ensure no overflow */
     height: auto; /* Maintain aspect ratio */
-    margin: 0 auto 20px auto; /* Center and space below */
+    margin: 0 auto 20px auto; /* Center and add spacing below */
     display: block;
 }
 
 /* Main Container */
 .container {
     width: 100%;
-    max-width: 420px; /* Ideal for mobile-first design */
+    max-width: 420px; /* Mobile app width */
     background-color: #333;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
     padding: 15px;
-    margin: 0 auto; /* Ensure centered position */
-    overflow: hidden;
+    margin: 0 auto;
     text-align: center;
+    overflow: hidden;
 }
 
 /* Headers */
@@ -47,12 +55,6 @@ h1 {
     font-size: 1.6rem;
     color: #ffdd57;
     margin-bottom: 15px;
-    word-wrap: break-word; /* Handle long text gracefully */
-}
-
-p {
-    font-size: 1rem;
-    margin-bottom: 10px;
     word-wrap: break-word;
 }
 
@@ -77,39 +79,26 @@ p {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Divider */
-.divider {
-    width: 90%;
-    height: 1px;
-    background: #555;
-    margin: 15px auto;
-}
-
-/* Prevent Overflow from Images or Other Elements */
-img, iframe, input, button {
+/* Prevent Internal Overflow in Other Elements */
+img, iframe, input, div {
+    width: 100%;
     max-width: 100%;
     height: auto;
     display: block;
 }
 
-/* Debugging Overflow Issues: Force Strict Widths */
-.container, .logo, .button, h1, p {
-    max-width: 100%;
-    overflow: hidden; /* Prevent inner overflow */
-}
-
-/* Responsive Design */
+/* Media Query for Mobile Responsiveness */
 @media (max-width: 480px) {
     h1 {
         font-size: 1.4rem;
     }
 
     .logo {
-        max-width: 45%;
+        max-width: 45%; /* Smaller logo for small screens */
     }
 
     .container {
-        width: calc(100% - 20px);
+        width: calc(100% - 20px); /* Add padding on small screens */
         padding: 10px;
     }
 
