@@ -1,0 +1,148 @@
+/* styles.css */
+
+/* Body should fill the entire screen with a solid black background */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black; /* Solid black background */
+}
+
+/* Loading screen container */
+.loading-screen {
+    display: flex;
+    flex-direction: column; /* Arrange logo and text vertically */
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+/* Logo Styling */
+.logo {
+    max-width: 80%; /* Adjust size of logo */
+    max-height: 80%;
+}
+
+/* Welcome Text Styling */
+.welcome-text {
+    color: white; /* White text color */
+    font-size: 20px; /* Adjust font size */
+    font-family: Arial, sans-serif; /* Choose a font family */
+    margin-top: 20px; /* Add some space between the logo and text */
+    text-align: center; /* Center the text */
+    font-weight: bold; /* Make the text bold */
+}
+
+/* styles.css */
+
+/* Basic Styles for the Welcome Page */
+.welcome-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    background-color: black; /* Keep the background black */
+    color: goldenrod; /* Change text color to golden */
+    text-align: center;
+}
+
+/* Heading and Description */
+h1 {
+    font-size: 40px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 20px;
+    font-family: Arial, sans-serif;
+    margin-bottom: 40px;
+}
+
+/* Button Container */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between buttons */
+}
+
+/* Button Styling */
+.button {
+    background-color: goldenrod; /* Set button background to golden */
+    color: black; /* Button text color */
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #b8860b; /* Darker gold on hover */
+}
+
+/* Step 2 Container */
+.step2-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #333333;
+    color: goldenrod;
+    text-align: center;
+    padding: 40px;
+    border: 2px solid goldenrod;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+}
+
+/* Plan Buttons */
+.expand-btn {
+    background-color: goldenrod;
+    color: black;
+    padding: 15px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: background-color 0.3s;
+    width: 80%;
+}
+
+.expand-btn:hover {
+    background-color: #b8860b;
+}
+
+/* Expand Content (Initially hidden) */
+.expand-content {
+    display: none;
+    padding-top: 10px;
+}
+
+/* Show the expanded content when active */
+.expand-content a {
+    background-color: goldenrod;
+    color: black;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: block;
+    margin-top: 10px;
+}
+
+.expand-content a:hover {
+    background-color: #b8860b;
+}
+
