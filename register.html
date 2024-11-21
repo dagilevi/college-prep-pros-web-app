@@ -26,12 +26,17 @@
         }
         input {
             width: 100%;
-            padding: 12px;
+            padding: 8px;  /* Adjust padding for smaller inputs */
             margin: 8px 0;
             border: 1px solid #f4c542;
             border-radius: 5px;
             background-color: #555;
             color: #f4c542;
+            font-size: 14px;  /* Smaller text for input */
+        }
+        input::placeholder {
+            font-size: 12px;  /* Smaller placeholder text */
+            color: #aaa;  /* Lighter color for placeholder */
         }
         button {
             background-color: #f4c542;
