@@ -251,3 +251,24 @@ input[type="file"], input[type="radio"] {
     }
 }
 
+form, .container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure buttons fit within the container */
+button {
+    width: 100%;
+    max-width: 300px;  /* Adjust max-width for larger screens */
+    margin: 10px auto; /* Center buttons */
+    padding: 12px;
+}
+
+/* Form inputs and text fields */
+input[type="text"], input[type="email"], input[type="file"], select {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+}
