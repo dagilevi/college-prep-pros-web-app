@@ -92,3 +92,69 @@ button:hover {
         padding: 8px 12px;
     }
 }
+
+/* Ultimate Horizontal Scrolling Fix with Green Loading Page */
+
+/* Reset All Margins, Paddings, and Ensure Proper Box Sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: green; /* Green background for the loading page */
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.5;
+    color: #f0f0f0;
+}
+
+/* Logo Styling */
+.logo {
+    width: 50%; /* Optimized size for mobile */
+    max-width: 100%; /* Ensure no overflow */
+    height: auto; /* Maintain aspect ratio */
+    margin: 0 auto 20px auto; /* Center and add spacing below */
+    display: block;
+}
+
+/* Main Container */
+.container {
+    width: 100%;
+    max-width: 420px; /* Mobile-friendly width */
+    background-color: #333;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    padding: 15px;
+    margin: 0 auto;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Headers */
+h1 {
+    font-size: 1.6rem;
+    color: #ffdd57;
+    margin-bottom: 15px;
+    word-wrap: break-word;
+}
+
+/* Buttons */
+.button {
+    background-color: #FFD700;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 90%;
+    max-width: 280px;
+    margin: 10px auto;
+    transition: background-color 0
