@@ -272,3 +272,52 @@ input[type="text"], input[type="email"], input[type="file"], select {
     padding: 10px;
     margin: 10px 0;
 }
+ 
+/* Prevent horizontal scrolling */
+body, html {
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure no other element overflows */
+* {
+    box-sizing: border-box;
+}
+
+/* Make sure content doesn’t exceed the screen width */
+.container {
+    max-width: 100%;
+    padding: 15px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Image and other wide elements */
+img, iframe, input[type="file"], button {
+    max-width: 100%;
+    height: auto;
+}
+
+form, .container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure buttons fit within the container */
+button {
+    width: 100%;
+    max-width: 300px;  /* Adjust max-width for larger screens */
+    margin: 10px auto; /* Center buttons */
+    padding: 12px;
+}
+
+/* Form inputs and text fields */
+input[type="text"], input[type="email"], input[type="file"], select {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+}
