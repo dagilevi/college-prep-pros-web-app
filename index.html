@@ -15,24 +15,35 @@
         /* Body Styles */
         body {
             font-family: Arial, sans-serif;
-            background-color: black; /* Changed background to black */
+            background-color: black; /* Background set to black */
             color: #f4c542;
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* Full viewport height */
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* Full viewport height */
             overflow: hidden;
         }
 
-        /* Loading Screen Styles */
+        /* Outer Full-Screen Container */
+        .outer-container {
+            width: 100vw; /* Full screen width */
+            height: 100vh; /* Full screen height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Inner Logo Container */
         .loading-screen {
             text-align: center;
             padding: 20px;
-            background: linear-gradient(145deg, #222, #444); /* Subtle gradient for the container */
+            background: linear-gradient(145deg, #222, #444); /* Subtle gradient */
             border-radius: 15px; /* Professional rounded edges */
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Clean shadow for depth */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Clean shadow */
             width: 90%;
-            max-width: 400px; /* Mobile-friendly size */
+            max-width: 400px; /* Keep the logo container mobile-friendly */
         }
 
         /* Logo Styling */
@@ -41,7 +52,7 @@
             height: auto;
             margin-bottom: 15px;
             border-radius: 10px; /* Soft rounded edges for the logo */
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4); /* Subtle logo shadow */
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4); /* Subtle shadow */
         }
 
         /* Welcome Text Styling */
@@ -65,16 +76,19 @@
     </style>
 </head>
 <body>
-    <!-- Loading Screen Container -->
-    <div class="loading-screen">
-        <img src="logo.png" alt="College Prep Pros Logo" class="logo"> <!-- Your logo -->
-        <p class="welcome-text">Welcome to the College Prep Pros – Since the Ivys</p>
+    <!-- Outer Full-Screen Container -->
+    <div class="outer-container">
+        <!-- Inner Logo Container -->
+        <div class="loading-screen">
+            <img src="logo.png" alt="College Prep Pros Logo" class="logo">
+            <p class="welcome-text">Welcome to the College Prep Pros – Since the Ivys</p>
+        </div>
     </div>
 
     <script>
         // JavaScript to extend the display duration of the logo page
         setTimeout(() => {
-            window.location.href = "welcome.html"; // Redirect to welcome page
+            window.location.href = "welcome.html"; // Redirect to the welcome page
         }, 5000); // 5 seconds
     </script>
 </body>
