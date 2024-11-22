@@ -5,21 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment</title>
     <style>
-        /* Styling for the page */
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styles */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', Arial, sans-serif;
             background-color: #333;
             color: #f4c542;
             text-align: center;
+            padding: 20px;
         }
 
+        h1 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        /* Form Container */
         .form-container {
             background-color: #444;
             padding: 30px;
-            border-radius: 8px;
-            width: 400px;
-            margin: 50px auto;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            width: 90%;
+            max-width: 400px;
+            margin: 0 auto;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
         }
 
         label {
@@ -122,33 +143,41 @@ New Payment Received:
 - Payment Method: ${paymentMethod}
 `;
 
-            // Send data to Telegram
-            const BOT_TOKEN = "YOUR_BOT_TOKEN"; // Replace with your bot's token
-            const CHAT_ID = "YOUR_TELEGRAM_CHAT_ID"; // Replace with your Telegram chat ID
+            // Telegram Bot API details
+            const BOT_TOKEN = "7769664653:AAF0Lg0VuiqHe6FLoMDMqQ4cvp4QpTIV7eg"; // Replace with your bot's token
+            const CHAT_ID = "5379874749"; // Replace with your Telegram chat ID
             const MESSAGE_API_URL = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
             const FILE_API_URL = `https://api.telegram.org/bot${BOT_TOKEN}/sendDocument`;
 
-            // Send message
-            await fetch(MESSAGE_API_URL, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    chat_id: CHAT_ID,
-                    text: message
-                })
-            });
+            try {
+                // Send message
+                await fetch(MESSAGE_API_URL, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        chat_id: CHAT_ID,
+                        text: message
+                    })
+                });
 
-            // Send payment proof
-            const formData = new FormData();
-            formData.append("chat_id", CHAT_ID);
-            formData.append("document", paymentProof);
+                // Send payment proof
+                const formData = new FormData();
+                formData.append("chat_id", CHAT_ID);
+                formData.append("document", paymentProof);
 
-            await fetch(FILE_API_URL, {
-                method: "POST",
-                body: formData
-            });
+                await fetch(FILE_API_URL, {
+                    method: "POST",
+                    body: formData
+                });
 
-            alert("Payment details submitted successfully!");
+                alert("Payment details submitted successfully!");
+                
+                // Redirect to confirmation page
+                window.location.href = "confirmation.html"; // Redirect to the confirmation page
+            } catch (error) {
+                console.error("Error submitting payment:", error);
+                alert("An error occurred. Please try again.");
+            }
         }
     </script>
 </head>
@@ -165,11 +194,45 @@ New Payment Received:
                 <option value="abyssinian-bank">Abyssinia Bank</option>
             </select>
 
+            <div class="payment-details" id="payment-details"></div>
+
             <label for="payment-proof">Upload Proof of Payment:</label>
             <input type="file" id="payment-proof" name="payment-proof" required>
 
             <button type="submit">Submit Payment</button>
         </form>
     </div>
+
+    <script>
+        // Display payment details based on the payment method selected
+        document.getElementById("payment-method").addEventListener("change", function() {
+            const paymentMethod = this.value;
+            const paymentDetails = document.getElementById("payment-details");
+            let details = "";
+
+            if (paymentMethod === "telebirr") {
+                details = `
+                    <strong>Telebirr Payment Details:</strong>
+                    <span><strong>Phone Number:</strong> +251979030271</span>
+                    <span><strong>Name:</strong> Dejenie</span>
+                `;
+            } else if (paymentMethod === "commercial-bank") {
+                details = `
+                    <strong>Commercial Bank of Ethiopia:</strong>
+                    <span><strong>Account Number:</strong> 1000987654321</span>
+                    <span><strong>Name:</strong> Dagmawi</span>
+                `;
+            } else if (paymentMethod === "abyssinian-bank") {
+                details = `
+                    <strong>Abyssinia Bank:</strong>
+                    <span><strong>Account Number:</strong> 140728047</span>
+                    <span><strong>Name:</strong> Dagmawi</span>
+                `;
+            }
+
+            paymentDetails.innerHTML = details;
+            paymentDetails.style.display = details ? "block" : "none";
+        });
+    </script>
 </body>
 </html>
