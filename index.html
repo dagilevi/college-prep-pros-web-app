@@ -3,19 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>College Prep Pros - Loading</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <style>
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black; /* Changed background to black */
+            color: #f4c542;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+            overflow: hidden;
+        }
+
+        /* Loading Screen Styles */
+        .loading-screen {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(145deg, #222, #444); /* Subtle gradient for the container */
+            border-radius: 15px; /* Professional rounded edges */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Clean shadow for depth */
+            width: 90%;
+            max-width: 400px; /* Mobile-friendly size */
+        }
+
+        /* Logo Styling */
+        .logo {
+            max-width: 80%;
+            height: auto;
+            margin-bottom: 15px;
+            border-radius: 10px; /* Soft rounded edges for the logo */
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4); /* Subtle logo shadow */
+        }
+
+        /* Welcome Text Styling */
+        .welcome-text {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #f4c542;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Fancy shadow effect */
+            margin-top: 10px;
+        }
+
+        /* Add a subtle animation */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .loading-screen {
+            animation: fadeIn 1s ease-in-out; /* Animate the loading screen */
+        }
+    </style>
 </head>
 <body>
     <!-- Loading Screen Container -->
     <div class="loading-screen">
         <img src="logo.png" alt="College Prep Pros Logo" class="logo"> <!-- Your logo -->
-
-        <!-- Welcome Text Below the Logo -->
         <p class="welcome-text">Welcome to the College Prep Pros – Since the Ivys</p>
     </div>
 
-    <script src="script.js"></script> <!-- Link to your JavaScript file -->
+    <script>
+        // JavaScript to extend the display duration of the logo page
+        setTimeout(() => {
+            window.location.href = "welcome.html"; // Redirect to welcome page
+        }, 5000); // 5 seconds
+    </script>
 </body>
 </html>
