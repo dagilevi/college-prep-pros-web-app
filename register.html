@@ -97,19 +97,32 @@
             }
         }
     </style>
+    <script>
+        // Collect form data and redirect with query parameters
+        function handleRegistration(event) {
+            event.preventDefault(); // Prevent form submission
+            const form = document.getElementById("register-form");
+            const formData = new FormData(form);
+
+            // Build query string from form data
+            const queryParams = new URLSearchParams(formData).toString();
+
+            // Redirect to choose-plan.html with query parameters
+            window.location.href = `choose-plan.html?${queryParams}`;
+        }
+    </script>
 </head>
 <body>
     <h1>Register</h1>
     <div class="form-container">
-        <form id="register-form" action="choose-plan.html" method="GET">
+        <form id="register-form" onsubmit="handleRegistration(event)">
             <input type="text" name="full-name" placeholder="Full Name" required><br><br>
             <input type="email" name="email" placeholder="Email" required><br><br>
             <input type="text" name="telegram-username" placeholder="Telegram Username" required><br><br>
 
-            <!-- Country Dropdown (Including East African, US, and European countries) -->
+            <!-- Country Dropdown -->
             <select name="country" required>
                 <option value="">Select Country</option>
-                <!-- East African countries -->
                 <option value="Ethiopia">Ethiopia</option>
                 <option value="Somalia">Somalia</option>
                 <option value="Eritrea">Eritrea</option>
@@ -120,9 +133,7 @@
                 <option value="Rwanda">Rwanda</option>
                 <option value="Burundi">Burundi</option>
                 <option value="South Sudan">South Sudan</option>
-                <!-- United States -->
                 <option value="United States">United States</option>
-                <!-- European countries -->
                 <option value="United Kingdom">United Kingdom</option>
                 <option value="Germany">Germany</option>
                 <option value="France">France</option>
@@ -138,31 +149,18 @@
                 <option value="Portugal">Portugal</option>
             </select><br><br>
 
-            <!-- Province Dropdown (States of Ethiopia) -->
+            <!-- Other Fields -->
             <select name="province" required>
                 <option value="">Select Province</option>
                 <option value="Addis Ababa">Addis Ababa</option>
                 <option value="Dire Dawa">Dire Dawa</option>
-                <option value="Central Ethiopia Regional State">Central Ethiopia Regional State</option>
                 <option value="Amhara">Amhara</option>
                 <option value="Oromia">Oromia</option>
                 <option value="Tigray">Tigray</option>
-                <option value="Sidama">Sidama</option>
-                <option value="South Ethiopia Regional State">South Ethiopia Regional State</option>
-                <option value="South West Ethiopia Peoples' Region">South West Ethiopia Peoples' Region</option>
-                <option value="Afar">Afar</option>
-                <option value="Somali">Somali</option>
-                <option value="Benishangul-Gumuz">Benishangul-Gumuz</option>
-                <option value="Harari">Harari</option>
             </select><br><br>
 
-            <!-- City (Open text field) -->
             <input type="text" name="city" placeholder="City" required><br><br>
-
-            <!-- School (Open text field) -->
             <input type="text" name="school" placeholder="School" required><br><br>
-
-            <!-- Grade Level (Dropdown) -->
             <select name="grade-level" required>
                 <option value="">Select Grade Level</option>
                 <option value="7">Grade 7</option>

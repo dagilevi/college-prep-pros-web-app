@@ -5,42 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment</title>
     <style>
-        /* Global Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Body Styles */
+        /* Styling for the page */
         body {
             font-family: Arial, sans-serif;
             background-color: #333;
             color: #f4c542;
             text-align: center;
-            padding: 20px;
         }
 
-        h1 {
-            font-size: 1.8rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        p {
-            font-size: 1rem;
-            margin-bottom: 20px;
-        }
-
-        /* Form Container */
         .form-container {
             background-color: #444;
             padding: 30px;
-            border-radius: 12px;
-            width: 90%;
-            max-width: 400px;
-            margin: 0 auto;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+            border-radius: 8px;
+            width: 400px;
+            margin: 50px auto;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
         }
 
         label {
@@ -100,53 +79,91 @@
         }
     </style>
     <script>
-        function updatePaymentDetails() {
-            const paymentMethod = document.getElementById("payment-method").value;
-            const paymentDetails = document.querySelector(".payment-details");
-            
-            // Reset content
-            paymentDetails.innerHTML = "";
+        // Retrieve user data from URL query parameters
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                fullName: params.get("full-name"),
+                email: params.get("email"),
+                telegramUsername: params.get("telegram-username"),
+                country: params.get("country"),
+                province: params.get("province"),
+                city: params.get("city"),
+                school: params.get("school"),
+                gradeLevel: params.get("grade-level"),
+                plan: params.get("plan")
+            };
+        }
 
-            if (paymentMethod === "telebirr") {
-                paymentDetails.innerHTML = `
-                    <strong>Telebirr Payment Details:</strong>
-                    <span><strong>Phone Number:</strong> +251979030271</span>
-                    <span><strong>Name:</strong> Dejenie</span>
-                `;
-            } else if (paymentMethod === "commercial-bank") {
-                paymentDetails.innerHTML = `
-                    <strong>Commercial Bank of Ethiopia:</strong>
-                    <span><strong>Account Number:</strong> 1000987654321</span>
-                    <span><strong>Name:</strong> Dagmawi</span>
-                `;
-            } else if (paymentMethod === "abyssinian-bank") {
-                paymentDetails.innerHTML = `
-                    <strong>Abyssinia Bank:</strong>
-                    <span><strong>Account Number:</strong> 140728047</span>
-                    <span><strong>Name:</strong> Dagmawi</span>
-                `;
+        // Handle form submission
+        async function handleSubmit(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const userData = getQueryParams();
+            const paymentMethod = document.getElementById("payment-method").value;
+            const paymentProof = document.getElementById("payment-proof").files[0];
+
+            if (!paymentProof) {
+                alert("Please upload proof of payment.");
+                return;
             }
 
-            paymentDetails.style.display = "block"; // Show payment details box
+            const message = `
+New Payment Received:
+- Full Name: ${userData.fullName}
+- Email: ${userData.email}
+- Telegram Username: ${userData.telegramUsername}
+- Country: ${userData.country}
+- Province: ${userData.province}
+- City: ${userData.city}
+- School: ${userData.school}
+- Grade Level: ${userData.gradeLevel}
+- Selected Plan: ${userData.plan}
+- Payment Method: ${paymentMethod}
+`;
+
+            // Send data to Telegram
+            const BOT_TOKEN = "YOUR_BOT_TOKEN"; // Replace with your bot's token
+            const CHAT_ID = "YOUR_TELEGRAM_CHAT_ID"; // Replace with your Telegram chat ID
+            const MESSAGE_API_URL = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+            const FILE_API_URL = `https://api.telegram.org/bot${BOT_TOKEN}/sendDocument`;
+
+            // Send message
+            await fetch(MESSAGE_API_URL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    chat_id: CHAT_ID,
+                    text: message
+                })
+            });
+
+            // Send payment proof
+            const formData = new FormData();
+            formData.append("chat_id", CHAT_ID);
+            formData.append("document", paymentProof);
+
+            await fetch(FILE_API_URL, {
+                method: "POST",
+                body: formData
+            });
+
+            alert("Payment details submitted successfully!");
         }
     </script>
 </head>
 <body>
     <h1>Payment Details</h1>
-    <p>Please select your payment method and upload proof of payment.</p>
+    <p>Select your payment method and upload proof of payment.</p>
 
     <div class="form-container">
-        <form id="payment-form" action="confirmation.html">
+        <form id="payment-form" onsubmit="handleSubmit(event)">
             <label for="payment-method">Select Payment Method:</label>
-            <select id="payment-method" name="payment-method" onchange="updatePaymentDetails()" required>
-                <option value="">-- Select Payment Method --</option>
+            <select id="payment-method" name="payment-method" required>
                 <option value="telebirr">Telebirr</option>
                 <option value="commercial-bank">Commercial Bank of Ethiopia</option>
                 <option value="abyssinian-bank">Abyssinia Bank</option>
             </select>
-
-            <!-- Payment Details Section -->
-            <div class="payment-details"></div>
 
             <label for="payment-proof">Upload Proof of Payment:</label>
             <input type="file" id="payment-proof" name="payment-proof" required>

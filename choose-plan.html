@@ -151,6 +151,28 @@
             features.style.display = isVisible ? "none" : "block";
             button.classList.toggle("collapsed", !isVisible);
         }
+
+        // Get user data from URL query parameters
+        function getUserData() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                fullName: params.get("full-name"),
+                email: params.get("email"),
+                telegramUsername: params.get("telegram-username"),
+                country: params.get("country"),
+                province: params.get("province"),
+                city: params.get("city"),
+                school: params.get("school"),
+                gradeLevel: params.get("grade-level")
+            };
+        }
+
+        // When a user selects a plan, redirect them to payment page with user data
+        function proceedToPayment(plan) {
+            const userData = getUserData();
+            const queryParams = new URLSearchParams(userData).toString();
+            window.location.href = `payment.html?${queryParams}&plan=${plan}`;
+        }
     </script>
 </head>
 <body>
@@ -177,7 +199,7 @@
                 <li class="subcategory">Understanding the CSS Profile</li>
                 <li class="subcategory">Submitting the Application</li>
             </ul>
-            <a href="payment.html?plan=basic"><button>Select Basic Plan</button></a>
+            <button onclick="proceedToPayment('basic')">Select Basic Plan</button>
         </div>
 
         <!-- Exclusive Plan -->
@@ -202,7 +224,7 @@
                 <li class="subcategory">School Profile Development</li>
                 <li class="subcategory">Maximizing Your Financial Aid Opportunities</li>
             </ul>
-            <a href="payment.html?plan=exclusive"><button>Select Exclusive Plan</button></a>
+            <button onclick="proceedToPayment('exclusive')">Select Exclusive Plan</button>
         </div>
     </div>
 </body>
