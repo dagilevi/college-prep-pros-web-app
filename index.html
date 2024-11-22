@@ -23,6 +23,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             overflow: hidden;
         }
 
@@ -41,22 +42,22 @@
         /* Inner Logo Container */
         .loading-screen {
             text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(145deg, #1a1a1a, #333); /* Smooth dark gradient */
-            border-radius: 25px; /* Large rounded edges for a professional look */
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Enhanced shadow for depth */
+            padding: 40px 30px;
+            background: linear-gradient(145deg, #222, #555); /* Smooth dark gradient */
+            border-radius: 25px; /* Large rounded edges */
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6); /* Enhanced shadow for depth */
             width: 90%;
             max-width: 420px; /* Keep the logo container mobile-friendly */
-            margin-bottom: 30px; /* Space between the logo container and the text line */
+            margin-bottom: 40px; /* Space between logo and the loading line */
         }
 
         /* Logo Styling */
         .logo {
-            max-width: 75%; /* Reduce the logo size for a balanced look */
+            max-width: 70%;
             height: auto;
-            margin-bottom: 20px; /* Space below the logo */
-            border-radius: 15px; /* Soft rounded edges for the logo */
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); /* Subtle shadow around the logo */
+            margin-bottom: 25px; /* Space below the logo */
+            border-radius: 12px; /* Soft rounded edges for the logo */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* Deep shadow for the logo */
         }
 
         /* Welcome Text Styling */
@@ -64,17 +65,17 @@
             font-size: 1.5rem;
             font-weight: bold;
             color: #f4c542;
-            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8); /* Fancy shadow effect */
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6); /* Fancy shadow effect */
             margin-top: 10px;
-            padding: 20px 0; /* Add padding for spacing */
+            padding: 10px 0;
         }
 
         /* Horizontal Line Between Logo and Text */
         .line {
-            width: 80%;
+            width: 70%;
             height: 2px;
             background-color: #f4c542;
-            margin: 15px auto; /* Center the line and provide space above/below */
+            margin: 20px auto;
             border-radius: 2px;
         }
 
@@ -88,15 +89,30 @@
             animation: fadeIn 1s ease-in-out; /* Apply fade-in animation */
         }
 
-        /* Bottom Line (Styled) */
-        .bottom-line {
-            width: 100%;
+        /* Loading Line Animation */
+        .loading-line {
+            width: 80%;
             height: 5px;
-            background-color: #f4c542;
+            background-color: #333;
             position: absolute;
-            bottom: 0;
-            left: 0;
-            border-radius: 0 0 10px 10px; /* Rounded bottom edges */
+            bottom: 50px; /* Positioning the loading line higher */
+            left: 50%;
+            transform: translateX(-50%); /* Center the loading line */
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .loading-bar {
+            height: 100%;
+            width: 0;
+            background-color: #f4c542;
+            animation: load 3s infinite; /* Smooth loading line animation */
+        }
+
+        @keyframes load {
+            0% { width: 0; }
+            50% { width: 60%; }
+            100% { width: 100%; }
         }
     </style>
 </head>
@@ -110,8 +126,10 @@
             <p class="welcome-text">Welcome to College Prep Pros – Since the Ivys</p> <!-- Welcome text -->
         </div>
 
-        <!-- Bottom Line -->
-        <div class="bottom-line"></div> <!-- Styled bottom line -->
+        <!-- Loading Line -->
+        <div class="loading-line">
+            <div class="loading-bar"></div>
+        </div>
     </div>
 
     <script>
