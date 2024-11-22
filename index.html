@@ -39,11 +39,12 @@
             position: relative;
         }
 
-        /* Inner Logo Container */
+        /* Inner Logo Container (Now with Pure Black Background) */
         .loading-screen {
             text-align: center;
             padding: 40px 30px;
-            background: linear-gradient(145deg, #222, #555); /* Smooth dark gradient */
+            background-color: black; /* Pure black background */
+            border: 5px solid #f4c542; /* Golden border around the container */
             border-radius: 25px; /* Large rounded edges */
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6); /* Enhanced shadow for depth */
             width: 90%;
@@ -89,13 +90,13 @@
             animation: fadeIn 1s ease-in-out; /* Apply fade-in animation */
         }
 
-        /* Loading Line Animation */
+        /* Loading Line */
         .loading-line {
             width: 80%;
             height: 5px;
             background-color: #333;
             position: absolute;
-            bottom: 50px; /* Positioning the loading line higher */
+            bottom: 50px; /* Positioned slightly higher */
             left: 50%;
             transform: translateX(-50%); /* Center the loading line */
             border-radius: 10px;
