@@ -5,41 +5,131 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment</title>
     <style>
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styles */
         body {
             font-family: Arial, sans-serif;
             background-color: #333;
             color: #f4c542;
             text-align: center;
+            padding: 20px;
         }
+
+        h1 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        /* Form Container */
         .form-container {
             background-color: #444;
             padding: 30px;
-            border-radius: 8px;
-            width: 400px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 400px;
             margin: 0 auto;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
         }
-        input, select {
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+            text-align: left;
+        }
+
+        select, input[type="file"] {
             width: 100%;
             padding: 12px;
-            margin: 8px 0;
+            margin: 10px 0;
             border: 1px solid #f4c542;
-            border-radius: 5px;
+            border-radius: 8px;
             background-color: #555;
             color: #f4c542;
         }
+
         button {
             background-color: #f4c542;
             color: #333;
-            padding: 12px 20px;
+            padding: 12px;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
+            font-size: 1rem;
             cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
         }
+
         button:hover {
             background-color: #e0b534;
         }
+
+        /* Payment Details Box */
+        .payment-details {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: #555;
+            color: #f4c542;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            display: none; /* Initially hidden */
+            text-align: left;
+        }
+
+        .payment-details strong {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .payment-details span {
+            display: block;
+            font-size: 1rem;
+        }
     </style>
+    <script>
+        function updatePaymentDetails() {
+            const paymentMethod = document.getElementById("payment-method").value;
+            const paymentDetails = document.querySelector(".payment-details");
+            
+            // Reset content
+            paymentDetails.innerHTML = "";
+
+            if (paymentMethod === "telebirr") {
+                paymentDetails.innerHTML = `
+                    <strong>Telebirr Payment Details:</strong>
+                    <span><strong>Phone Number:</strong> +251979030271</span>
+                    <span><strong>Name:</strong> Dejenie</span>
+                `;
+            } else if (paymentMethod === "commercial-bank") {
+                paymentDetails.innerHTML = `
+                    <strong>Commercial Bank of Ethiopia:</strong>
+                    <span><strong>Account Number:</strong> 1000987654321</span>
+                    <span><strong>Name:</strong> Dagmawi</span>
+                `;
+            } else if (paymentMethod === "abyssinian-bank") {
+                paymentDetails.innerHTML = `
+                    <strong>Abyssinia Bank:</strong>
+                    <span><strong>Account Number:</strong> 140728047</span>
+                    <span><strong>Name:</strong> Dagmawi</span>
+                `;
+            }
+
+            paymentDetails.style.display = "block"; // Show payment details box
+        }
+    </script>
 </head>
 <body>
     <h1>Payment Details</h1>
@@ -47,15 +137,19 @@
 
     <div class="form-container">
         <form id="payment-form" action="confirmation.html">
-            <label for="payment-method">Select Payment Method:</label><br>
-            <select id="payment-method" name="payment-method" required>
+            <label for="payment-method">Select Payment Method:</label>
+            <select id="payment-method" name="payment-method" onchange="updatePaymentDetails()" required>
+                <option value="">-- Select Payment Method --</option>
                 <option value="telebirr">Telebirr</option>
                 <option value="commercial-bank">Commercial Bank of Ethiopia</option>
-                <option value="abyssinian-bank">Abyssinian Bank</option>
-            </select><br><br>
+                <option value="abyssinian-bank">Abyssinia Bank</option>
+            </select>
 
-            <label for="payment-proof">Upload Proof of Payment:</label><br>
-            <input type="file" id="payment-proof" name="payment-proof" required><br><br>
+            <!-- Payment Details Section -->
+            <div class="payment-details"></div>
+
+            <label for="payment-proof">Upload Proof of Payment:</label>
+            <input type="file" id="payment-proof" name="payment-proof" required>
 
             <button type="submit">Submit Payment</button>
         </form>
