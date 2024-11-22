@@ -23,6 +23,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             overflow: hidden;
         }
 
@@ -33,7 +34,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             background-color: black; /* Outer container background set to black */
+            position: relative; /* To position the loading line at the bottom */
         }
 
         /* Inner Logo Container */
@@ -47,15 +50,15 @@
             width: 90%;
             max-width: 400px; /* Keep the logo container mobile-friendly */
             position: relative;
-            top: -20px; /* Move the container slightly up */
+            top: -30px; /* Move the container further up */
         }
 
         /* Logo Styling */
         .logo {
-            max-width: 80%; /* Responsive logo size */
+            max-width: 80%;
             height: auto;
             margin-bottom: 15px;
-            border-radius: 10px; /* Rounded edges for the logo */
+            border-radius: 10px; /* Soft rounded edges for the logo */
             box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4); /* Subtle shadow */
         }
 
@@ -111,10 +114,11 @@
         <div class="loading-screen">
             <img src="logo.png" alt="College Prep Pros Logo" class="logo">
             <p class="welcome-text">Welcome to the College Prep Pros – Since the Ivys</p>
-            <!-- Loading Line -->
-            <div class="loading-line">
-                <div class="loading-bar"></div>
-            </div>
+        </div>
+
+        <!-- Loading Line Outside the Container -->
+        <div class="loading-line">
+            <div class="loading-bar"></div>
         </div>
     </div>
 
