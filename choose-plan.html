@@ -71,18 +71,62 @@
             font-size: 0.95rem; /* Adjust font size */
         }
 
-        .plan ul {
+        /* Collapsible Features Section */
+        .features {
             list-style: none;
             padding: 0;
-            font-size: 0.9rem; /* Smaller font size for lists */
-            text-align: left; /* Align features list to the left */
             margin: 10px 0;
+            display: none; /* Hidden by default */
+            text-align: left;
+            font-size: 0.9rem;
         }
 
-        .plan ul li {
+        .features li {
             margin-bottom: 5px;
         }
 
+        /* Main Category Styling */
+        .features .main-category {
+            font-weight: 600; /* Bold main categories */
+            color: #fff; /* Bright color for emphasis */
+        }
+
+        .features .main-category::before {
+            content: "★ "; /* Custom bullet for main categories */
+            color: #f4c542;
+        }
+
+        /* Subcategory Styling */
+        .features .subcategory::before {
+            content: "• "; /* Simple bullet for subcategories */
+            color: #f4c542;
+        }
+
+        /* Toggle Button */
+        .toggle-button {
+            background-color: transparent;
+            color: #f4c542;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+
+        .toggle-button:hover {
+            color: #e0b534;
+        }
+
+        .toggle-button::after {
+            content: "▼"; /* Down arrow */
+            font-size: 1.2rem;
+            margin-left: 5px;
+        }
+
+        .toggle-button.collapsed::after {
+            content: "▲"; /* Up arrow */
+        }
+
+        /* Button */
         .plan button {
             background-color: #f4c542;
             color: #333;
@@ -98,32 +142,16 @@
         .plan button:hover {
             background-color: #e0b534;
         }
-
-        /* Media Query for Mobile Devices */
-        @media (max-width: 480px) {
-            .plan-container {
-                padding: 15px; /* Reduce padding on small screens */
-                margin: 20px auto;
-            }
-
-            .plan {
-                padding: 10px; /* Reduce padding for smaller screens */
-            }
-
-            .plan h3 {
-                font-size: 1.1rem; /* Adjust heading size */
-            }
-
-            .plan p, .plan ul {
-                font-size: 0.85rem; /* Smaller text on mobile */
-            }
-
-            .plan button {
-                font-size: 0.9rem; /* Smaller button text */
-                padding: 10px; /* Compact button padding */
-            }
-        }
     </style>
+    <script>
+        // Toggle Features Section
+        function toggleFeatures(button, featureId) {
+            const features = document.getElementById(featureId);
+            const isVisible = features.style.display === "block";
+            features.style.display = isVisible ? "none" : "block";
+            button.classList.toggle("collapsed", !isVisible);
+        }
+    </script>
 </head>
 <body>
     <h1>Choose Your Plan</h1>
@@ -135,20 +163,19 @@
             <h3>Basic Plan</h3>
             <p>300 ETB</p>
             <p>Features:</p>
-            <ul>
-                <li>Standardized exam tutoring services </li>
-                <li>exclusive practice tests</li>
-                <li>College Board Navigation</li>
-                <li>College Guidance service</li>
-                <li>📋 Creating a Common Application Account  </li>
-                <li>💡 Highlighting Your Extracurriculars   </li>
-                <li>📨 Recommendation Letters & FERPA Release    </li>
-                <li>🎯 College Selection Process    </li>
-                <li>CSS (Financial Aid Application) Guidance    </li>
-                <li>💡 Understanding the CSS Profile    </li>
-                <li>🗂️ Submitting the Application   </li>
-               
-
+            <button class="toggle-button" onclick="toggleFeatures(this, 'basic-features')">Show Features</button>
+            <ul id="basic-features" class="features">
+                <li class="main-category">Standardized exam tutoring services</li>
+                <li class="subcategory">Exclusive practice tests</li>
+                <li class="subcategory">College Board Navigation</li>
+                <li class="subcategory">College Guidance Service</li>
+                <li class="main-category">Creating a Common Application Account</li>
+                <li class="subcategory">Highlighting Your Extracurriculars</li>
+                <li class="subcategory">Recommendation Letters & FERPA Release</li>
+                <li class="subcategory">College Selection Process</li>
+                <li class="main-category">CSS (Financial Aid Application) Guidance</li>
+                <li class="subcategory">Understanding the CSS Profile</li>
+                <li class="subcategory">Submitting the Application</li>
             </ul>
             <a href="payment.html?plan=basic"><button>Select Basic Plan</button></a>
         </div>
@@ -158,26 +185,24 @@
             <h3>Exclusive Plan</h3>
             <p>500 ETB</p>
             <p>Features:</p>
-            <ul>
-                <li>Standardized exam tutoring services </li>
-                <li>exclusive practice tests</li>
-                <li>College Board Navigation</li>
-                <li>College Guidance service</li>
-                <li>📋 Creating a Common Application Account  </li>
-                <li>💡 Highlighting Your Extracurriculars   </li>
-                <li>📨 Recommendation Letters & FERPA Release    </li>
-                <li>🎯 College Selection Process    </li>
-                <li>CSS (Financial Aid Application) Guidance    </li>
-                <li>💡 Understanding the CSS Profile    </li>
-                <li>🗂️ Submitting the Application   </li>
-                <li>👩‍🏫 One-on-One Personalized Sessions  </li>
-                <li>📂 School Profile Development  </li>
-                <li>💰 Maximizing Your Financial Aid Opportunities</li>
-                
-                
-
+            <button class="toggle-button" onclick="toggleFeatures(this, 'exclusive-features')">Show Features</button>
+            <ul id="exclusive-features" class="features">
+                <li class="main-category">Standardized exam tutoring services</li>
+                <li class="subcategory">Exclusive practice tests</li>
+                <li class="subcategory">College Board Navigation</li>
+                <li class="subcategory">College Guidance Service</li>
+                <li class="main-category">Creating a Common Application Account</li>
+                <li class="subcategory">Highlighting Your Extracurriculars</li>
+                <li class="subcategory">Recommendation Letters & FERPA Release</li>
+                <li class="subcategory">College Selection Process</li>
+                <li class="main-category">CSS (Financial Aid Application) Guidance</li>
+                <li class="subcategory">Understanding the CSS Profile</li>
+                <li class="subcategory">Submitting the Application</li>
+                <li class="subcategory">One-on-One Personalized Sessions</li>
+                <li class="subcategory">School Profile Development</li>
+                <li class="subcategory">Maximizing Your Financial Aid Opportunities</li>
             </ul>
-            <a href="payment.html?plan=premium"><button>Select Premium Plan</button></a>
+            <a href="payment.html?plan=exclusive"><button>Select Exclusive Plan</button></a>
         </div>
     </div>
 </body>
