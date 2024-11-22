@@ -19,24 +19,16 @@
             color: #f4c542;
             height: 100vh; /* Full viewport height */
             overflow: hidden; /* Prevent scrolling */
-        }
-
-        /* Outer Full-Screen Container */
-        .fullscreen-container {
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* Full vertical height */
-            background: black; /* Ensures the background remains black */
+            flex-direction: column;
         }
 
         /* Inner Logo Container */
         .loading-screen {
             text-align: center;
             padding: 20px;
-            width: 90%; /* Responsive width */
-            max-width: 400px; /* Limit width for larger screens */
             background: linear-gradient(145deg, #333, #555); /* Inner gradient for the logo container */
             border-radius: 15px; /* Rounded edges */
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Professional shadow */
@@ -47,7 +39,7 @@
             max-width: 80%; /* Responsive logo size */
             height: auto;
             margin-bottom: 15px;
-            border-radius: 10px; /* Rounded edges */
+            border-radius: 10px; /* Rounded edges for the logo */
             box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4); /* Subtle shadow */
         }
 
@@ -73,13 +65,10 @@
     </style>
 </head>
 <body>
-    <!-- Outer Fullscreen Container -->
-    <div class="fullscreen-container">
-        <!-- Inner Logo Container -->
-        <div class="loading-screen">
-            <img src="logo.png" alt="College Prep Pros Logo" class="logo">
-            <p class="welcome-text">Welcome to the College Prep Pros – Since the Ivys</p>
-        </div>
+    <!-- Inner Logo Container with Logo and Text -->
+    <div class="loading-screen">
+        <img src="logo.png" alt="College Prep Pros Logo" class="logo">
+        <p class="welcome-text">Welcome to the College Prep Pros – Since the Ivys</p>
     </div>
 
     <script>
