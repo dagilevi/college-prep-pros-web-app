@@ -45,14 +45,25 @@
             box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4); /* Subtle shadow */
         }
 
+        /* Welcome Text Container */
+        .welcome-text-container {
+            width: 100%;
+            height: 100vh; /* Make the container fill the entire screen */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black; /* Ensure the background is black */
+            text-align: center;
+        }
+
         /* Welcome Text Styling */
         .welcome-text {
-            font-size: 1rem; /* Smaller text for mobile devices */
+            font-size: 1.2rem; /* Smaller text for mobile devices */
             font-weight: bold;
             color: #f4c542;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Fancy shadow */
-            margin-top: 20px; /* Space between the logo and text */
-            text-align: center; /* Center the welcome text */
+            margin-top: 10px;
+            padding: 20px;
         }
 
         /* Fade-In Animation */
@@ -72,8 +83,10 @@
         <img src="logo.png" alt="College Prep Pros Logo" class="logo">
     </div>
 
-    <!-- Welcome Text Outside the Logo Container -->
-    <p class="welcome-text">Welcome to the College Prep Pros – Since the Ivys</p>
+    <!-- Welcome Text Container -->
+    <div class="welcome-text-container">
+        <p class="welcome-text">Welcome to the College Prep Pros – Since the Ivys</p>
+    </div>
 
     <script>
         // Extend logo page display duration
