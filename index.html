@@ -15,7 +15,7 @@
         /* Body Styles */
         body {
             font-family: Arial, sans-serif;
-            background-color: black; /* Background set to black */
+            background-color: black; /* Full background set to black */
             color: #f4c542;
             margin: 0;
             padding: 0;
@@ -33,15 +33,17 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            background-color: black; /* Outer container background set to black */
         }
 
         /* Inner Logo Container */
         .loading-screen {
             text-align: center;
             padding: 20px;
-            background: linear-gradient(145deg, #222, #444); /* Subtle gradient */
-            border-radius: 15px; /* Professional rounded edges */
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Clean shadow */
+            background-color: black; /* Inner container background set to black */
+            border: 5px solid #f4c542; /* Visible edges with a golden border */
+            border-radius: 15px; /* Rounded edges for the container */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Clean shadow for depth */
             width: 90%;
             max-width: 400px; /* Keep the logo container mobile-friendly */
         }
@@ -64,14 +66,14 @@
             margin-top: 10px;
         }
 
-        /* Add a subtle animation */
+        /* Fade-In Animation */
         @keyframes fadeIn {
             0% { opacity: 0; transform: scale(0.9); }
             100% { opacity: 1; transform: scale(1); }
         }
 
         .loading-screen {
-            animation: fadeIn 1s ease-in-out; /* Animate the loading screen */
+            animation: fadeIn 1s ease-in-out; /* Apply fade-in animation */
         }
     </style>
 </head>
