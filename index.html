@@ -29,15 +29,11 @@
         .logo-container {
             text-align: center;
             padding: 20px;
-            width: 100%; /* Make the container full width */
-            height: 100vh; /* Make the container full height */
+            width: 90%; /* Responsive width */
+            max-width: 400px; /* Limit width for larger screens */
             background: linear-gradient(145deg, #333, #555); /* Inner gradient for the logo container */
             border-radius: 15px; /* Rounded edges for the container */
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
         }
 
         /* Logo Styling */
@@ -47,6 +43,17 @@
             margin-bottom: 15px;
             border-radius: 10px; /* Rounded edges for the logo */
             box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4); /* Subtle shadow */
+        }
+
+        /* Welcome Text Container */
+        .welcome-text-container {
+            width: 100%;
+            height: 100vh; /* Full screen height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black; /* Black background for welcome text */
+            text-align: center;
         }
 
         /* Welcome Text Styling */
@@ -71,9 +78,13 @@
     </style>
 </head>
 <body>
-    <!-- Inner Full-Screen Logo Container with Text -->
+    <!-- Inner Full-Screen Logo Container -->
     <div class="logo-container">
         <img src="logo.png" alt="College Prep Pros Logo" class="logo">
+    </div>
+
+    <!-- Welcome Text Container with Black Background -->
+    <div class="welcome-text-container">
         <p class="welcome-text">Welcome to the College Prep Pros – Since the Ivys</p>
     </div>
 
