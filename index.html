@@ -26,7 +26,7 @@
         }
 
         /* Inner Logo Container */
-        .loading-screen {
+        .logo-container {
             text-align: center;
             padding: 20px;
             width: 90%; /* Responsive width */
@@ -51,7 +51,8 @@
             font-weight: bold;
             color: #f4c542;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Fancy shadow */
-            margin-top: 10px;
+            margin-top: 20px; /* Space between the logo and text */
+            text-align: center; /* Center the welcome text */
         }
 
         /* Fade-In Animation */
@@ -60,17 +61,19 @@
             100% { opacity: 1; transform: scale(1); }
         }
 
-        .loading-screen {
+        .logo-container {
             animation: fadeIn 1s ease-in-out; /* Apply fade-in animation */
         }
     </style>
 </head>
 <body>
     <!-- Inner Logo Container -->
-    <div class="loading-screen">
+    <div class="logo-container">
         <img src="logo.png" alt="College Prep Pros Logo" class="logo">
-        <p class="welcome-text">Welcome to the College Prep Pros – Since the Ivys</p>
     </div>
+
+    <!-- Welcome Text Outside the Logo Container -->
+    <p class="welcome-text">Welcome to the College Prep Pros – Since the Ivys</p>
 
     <script>
         // Extend logo page display duration
