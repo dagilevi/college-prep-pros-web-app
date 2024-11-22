@@ -25,19 +25,13 @@
             flex-direction: column;
         }
 
-        /* Inner Full-Screen Logo Container */
-        .logo-container {
+        /* Inner Logo Container */
+        .loading-screen {
             text-align: center;
             padding: 20px;
-            width: 100%; /* Make the container full width */
-            height: 100vh; /* Make the container full height */
             background: linear-gradient(145deg, #333, #555); /* Inner gradient for the logo container */
-            border-radius: 15px; /* Rounded edges for the container */
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            border-radius: 15px; /* Rounded edges */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Professional shadow */
         }
 
         /* Logo Styling */
@@ -51,12 +45,12 @@
 
         /* Welcome Text Styling */
         .welcome-text {
-            font-size: 1.2rem; /* Smaller text for mobile devices */
+            font-size: 1.2rem;
             font-weight: bold;
             color: #f4c542;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Fancy shadow */
             margin-top: 10px;
-            padding: 20px;
+            background: none; /* No background */
         }
 
         /* Fade-In Animation */
@@ -65,14 +59,14 @@
             100% { opacity: 1; transform: scale(1); }
         }
 
-        .logo-container {
-            animation: fadeIn 1s ease-in-out; /* Apply fade-in animation */
+        .loading-screen {
+            animation: fadeIn 1s ease-in-out; /* Apply animation */
         }
     </style>
 </head>
 <body>
-    <!-- Inner Full-Screen Logo Container with Text -->
-    <div class="logo-container">
+    <!-- Inner Logo Container with Logo and Text -->
+    <div class="loading-screen">
         <img src="logo.png" alt="College Prep Pros Logo" class="logo">
         <p class="welcome-text">Welcome to the College Prep Pros – Since the Ivys</p>
     </div>
@@ -80,7 +74,7 @@
     <script>
         // Extend logo page display duration
         setTimeout(() => {
-            window.location.href = "welcome.html"; // Redirect to welcome page after 5 seconds
+            window.location.href = "welcome.html"; // Redirect to welcome page
         }, 5000); // 5 seconds
     </script>
 </body>
