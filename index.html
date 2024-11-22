@@ -15,43 +15,39 @@
         /* Body Styles */
         body {
             font-family: Arial, sans-serif;
-            background-color: black; /* Background set to black */
+            background-color: black; /* Fullscreen black background */
             color: #f4c542;
-            margin: 0;
-            padding: 0;
-            height: 100vh; /* Full viewport height */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
+            height: 100vh; /* Fill the viewport */
+            overflow: hidden; /* Prevent scrolling */
         }
 
         /* Outer Full-Screen Container */
-        .outer-container {
-            width: 100vw; /* Full screen width */
-            height: 100vh; /* Full screen height */
+        .fullscreen-container {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
+            height: 100vh; /* Full vertical height */
+            background: linear-gradient(145deg, #222, #444); /* Subtle gradient */
         }
 
         /* Inner Logo Container */
         .loading-screen {
             text-align: center;
             padding: 20px;
-            background: linear-gradient(145deg, #222, #444); /* Subtle gradient */
-            border-radius: 15px; /* Professional rounded edges */
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Clean shadow */
-            width: 90%;
-            max-width: 400px; /* Keep the logo container mobile-friendly */
+            width: 90%; /* Responsive width */
+            max-width: 400px; /* Limit width for larger screens */
+            background: linear-gradient(145deg, #333, #555); /* Inner gradient */
+            border-radius: 15px; /* Rounded edges */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Professional shadow */
         }
 
         /* Logo Styling */
         .logo {
-            max-width: 80%;
+            max-width: 80%; /* Responsive logo size */
             height: auto;
             margin-bottom: 15px;
-            border-radius: 10px; /* Soft rounded edges for the logo */
+            border-radius: 10px; /* Rounded edges */
             box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4); /* Subtle shadow */
         }
 
@@ -60,24 +56,24 @@
             font-size: 1.2rem;
             font-weight: bold;
             color: #f4c542;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Fancy shadow effect */
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Fancy shadow */
             margin-top: 10px;
         }
 
-        /* Add a subtle animation */
+        /* Fade-In Animation */
         @keyframes fadeIn {
             0% { opacity: 0; transform: scale(0.9); }
             100% { opacity: 1; transform: scale(1); }
         }
 
         .loading-screen {
-            animation: fadeIn 1s ease-in-out; /* Animate the loading screen */
+            animation: fadeIn 1s ease-in-out; /* Apply animation */
         }
     </style>
 </head>
 <body>
-    <!-- Outer Full-Screen Container -->
-    <div class="outer-container">
+    <!-- Outer Fullscreen Container -->
+    <div class="fullscreen-container">
         <!-- Inner Logo Container -->
         <div class="loading-screen">
             <img src="logo.png" alt="College Prep Pros Logo" class="logo">
@@ -86,9 +82,9 @@
     </div>
 
     <script>
-        // JavaScript to extend the display duration of the logo page
+        // Extend logo page display duration
         setTimeout(() => {
-            window.location.href = "welcome.html"; // Redirect to the welcome page
+            window.location.href = "welcome.html"; // Redirect to welcome page
         }, 5000); // 5 seconds
     </script>
 </body>
