@@ -4,7 +4,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome - College Prep Pros</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to the same CSS file -->
+    <style>
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #333;
+            color: #f4c542;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
+        /* Welcome Container */
+        .welcome-container {
+            padding: 20px;
+            width: 90%; /* Fit within the screen */
+            max-width: 400px; /* Limit width for larger devices */
+            margin: 30px auto;
+            background-color: #444;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 1.8rem; /* Adjust for mobile screens */
+            margin-bottom: 15px;
+            color: #f4c542;
+        }
+
+        p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: #f4c542;
+        }
+
+        /* Button Container and Buttons */
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Space between buttons */
+        }
+
+        .button {
+            background-color: #f4c542;
+            color: #333;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%; /* Fit buttons within the container */
+            max-width: 300px; /* Limit button width for larger devices */
+            margin: 0 auto;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #e0b534;
+        }
+
+        /* Responsive Design for Smaller Screens */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            p {
+                font-size: 0.9rem;
+            }
+
+            .button {
+                font-size: 14px;
+                padding: 10px 15px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Welcome Page Content -->
