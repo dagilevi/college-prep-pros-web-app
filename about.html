@@ -40,6 +40,7 @@
             margin-bottom: 30px;
             color: #f4c542;
             line-height: 1.6;
+            text-align: center; /* Center-aligned text */
         }
 
         /* Container Styles */
@@ -52,6 +53,7 @@
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
             text-align: left;
             color: #f4c542;
+            margin-bottom: 30px;
         }
 
         .content-container h2 {
@@ -74,6 +76,8 @@
             border-radius: 8px;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            display: block;
+            margin: 20px auto;
         }
 
         .see-more-btn:hover {
@@ -88,19 +92,65 @@
             line-height: 1.5;
         }
 
-        /* Responsive Design */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 2rem;
-            }
+        /* Fancy Button Container */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
 
-            .content-container {
-                padding: 20px;
-            }
+        .cta-button {
+            background-color: #f4c542;
+            color: #333;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
 
-            p {
-                font-size: 1rem;
-            }
+        .cta-button:hover {
+            background-color: #e0b534;
+        }
+
+        /* Fancy Bullets */
+        .fancy-bullets {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .fancy-bullets li {
+            font-size: 1.1rem;
+            margin: 12px 0;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .fancy-bullets li::before {
+            content: "✨";
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.4rem;
+        }
+
+        /* Button Container Styling */
+        .button-container a {
+            background-color: #f4c542;
+            color: #333;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+            max-width: 300px;
+            text-align: center;
+            display: block;
+            margin: 0 auto;
         }
     </style>
 </head>
@@ -108,25 +158,25 @@
     <h1>Welcome to College Prep Pros!</h1>
     <p>At **College Prep Pros**, we provide expert guidance and support to help students succeed in their college journey. Whether it’s **test prep**, **college applications**, or **financial aid**, we’re here to ensure you achieve your academic dreams.</p>
 
-    <!-- Mission Section -->
+    <!-- Mission Section with Expandable Content -->
     <div class="content-container">
         <h2>Our Mission</h2>
-        <p>We aim to empower students to excel in every aspect of the college admissions process, from standardized testing to crafting exceptional applications. Our goal is to make the college journey less stressful and more successful for every student we work with.</p>
+        <p>We empower students to succeed by providing personalized support that caters to their individual needs. Whether it’s **test prep**, **college applications**, or **financial aid guidance**, we offer the tools and expertise needed to make the college journey easier and more successful.</p>
         <button class="see-more-btn" onclick="toggleContent('mission-content')">See More</button>
         <div id="mission-content" class="hidden-content">
             <p>At College Prep Pros, we understand the challenges of the college admissions process. Our team of experts provides personalized coaching to help students prepare for SAT/ACT exams, navigate the complex world of applications, and secure financial aid. We believe in tailoring our services to meet each student’s unique needs and goals. Our personalized approach ensures every student receives the attention and resources necessary to succeed.</p>
         </div>
     </div>
 
-    <!-- Why Choose Us Section -->
+    <!-- Why Choose Us Section with Expandable Content -->
     <div class="content-container">
         <h2>Why Choose Us?</h2>
         <p>We offer a range of services designed to help students at every step of their college prep journey. Here's why we're the best choice for you:</p>
-        <ul>
-            <li>✨ <strong>1-on-1 Personalized Coaching</strong> to meet each student’s specific needs.</li>
-            <li>✨ <strong>Proven Success</strong> with hundreds of students raising their test scores and improving applications.</li>
-            <li>✨ <strong>Comprehensive College Guidance</strong> from brainstorming essays to finalizing applications.</li>
-            <li>✨ <strong>Financial Aid Expertise</strong> to help you maximize scholarship opportunities and navigate the CSS Profile.</li>
+        <ul class="fancy-bullets">
+            <li><strong>1-on-1 Personalized Coaching</strong> to meet each student’s specific needs.</li>
+            <li><strong>Proven Success</strong> with hundreds of students raising their test scores and improving applications.</li>
+            <li><strong>Comprehensive College Guidance</strong> from brainstorming essays to finalizing applications.</li>
+            <li><strong>Financial Aid Expertise</strong> to help you maximize scholarship opportunities and navigate the CSS Profile.</li>
         </ul>
         <button class="see-more-btn" onclick="toggleContent('chooseus-content')">See More</button>
         <div id="chooseus-content" class="hidden-content">
@@ -134,6 +184,7 @@
         </div>
     </div>
 
+    <!-- Fancy Button Container for Registration and Contact -->
     <div class="button-container">
         <a href="contact.html" class="cta-button">Contact Us</a>
         <a href="register.html" class="cta-button">Register Now</a>
