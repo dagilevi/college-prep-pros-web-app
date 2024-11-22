@@ -50,7 +50,8 @@
             width: 90%;
             max-width: 400px; /* Keep the logo container mobile-friendly */
             position: relative;
-            top: -30px; /* Move the container further up */
+            top: -50px; /* Move the container further up */
+            z-index: 1; /* Ensure the logo container is above the loading line */
         }
 
         /* Logo Styling */
@@ -87,7 +88,7 @@
             height: 5px;
             background-color: #333;
             position: absolute;
-            bottom: 0;
+            bottom: 20px; /* Adds space between the container and loading line */
             left: 0;
             border-radius: 5px;
             overflow: hidden;
