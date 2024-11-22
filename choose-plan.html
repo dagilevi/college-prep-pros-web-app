@@ -5,41 +5,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Choose Your Plan</title>
     <style>
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styles */
         body {
             font-family: Arial, sans-serif;
             background-color: #333;
             color: #f4c542;
             text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%; /* Ensure it fits the screen width */
+            overflow-x: hidden; /* Prevent horizontal scrolling */
         }
+
+        /* Plan Container */
         .plan-container {
             background-color: #444;
-            padding: 30px;
+            padding: 20px;
             border-radius: 8px;
-            width: 400px;
-            margin: 50px auto;
+            width: 90%; /* Flexible width for mobile screens */
+            max-width: 400px; /* Limit width for larger devices */
+            margin: 30px auto;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
         }
+
+        /* Individual Plan Styles */
         .plan {
             background-color: #555;
-            padding: 20px;
+            padding: 15px; /* Adjusted for smaller screens */
             margin: 10px 0;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
+
         .plan h3 {
             color: #f4c542;
+            margin-bottom: 10px;
+            font-size: 1.2rem; /* Slightly smaller for mobile */
         }
+
+        .plan p {
+            margin: 5px 0;
+            font-size: 0.95rem; /* Adjust font size */
+        }
+
+        .plan ul {
+            list-style: none;
+            padding: 0;
+            font-size: 0.9rem; /* Smaller font size for lists */
+            text-align: left; /* Align features list to the left */
+            margin: 10px 0;
+        }
+
+        .plan ul li {
+            margin-bottom: 5px;
+        }
+
         .plan button {
             background-color: #f4c542;
             color: #333;
-            padding: 12px 20px;
+            padding: 12px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             width: 100%;
+            font-size: 1rem; /* Adjusted font size */
         }
+
         .plan button:hover {
             background-color: #e0b534;
+        }
+
+        /* Media Query for Mobile Devices */
+        @media (max-width: 480px) {
+            .plan-container {
+                padding: 15px; /* Reduce padding on small screens */
+                margin: 20px auto;
+            }
+
+            .plan {
+                padding: 10px; /* Reduce padding for smaller screens */
+            }
+
+            .plan h3 {
+                font-size: 1.1rem; /* Adjust heading size */
+            }
+
+            .plan p, .plan ul {
+                font-size: 0.85rem; /* Smaller text on mobile */
+            }
+
+            .plan button {
+                font-size: 0.9rem; /* Smaller button text */
+                padding: 10px; /* Compact button padding */
+            }
         }
     </style>
 </head>
