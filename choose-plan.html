@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Choose Your Plan</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         /* Global Reset */
         * {
@@ -14,7 +16,7 @@
 
         /* Body Styles */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', Arial, sans-serif; /* Fancy font */
             background-color: #333;
             color: #f4c542;
             text-align: center;
@@ -23,6 +25,18 @@
             height: 100%;
             width: 100%; /* Ensure it fits the screen width */
             overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
+        h1 {
+            font-size: 1.8rem; /* Larger size for heading */
+            font-weight: 600; /* Bold for emphasis */
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1rem;
+            font-weight: 400; /* Regular weight for normal text */
+            margin-bottom: 20px;
         }
 
         /* Plan Container */
@@ -49,6 +63,7 @@
             color: #f4c542;
             margin-bottom: 10px;
             font-size: 1.2rem; /* Slightly smaller for mobile */
+            font-weight: 500; /* Medium weight for headings */
         }
 
         .plan p {
@@ -77,6 +92,7 @@
             cursor: pointer;
             width: 100%;
             font-size: 1rem; /* Adjusted font size */
+            font-weight: 500; /* Medium weight for buttons */
         }
 
         .plan button:hover {
