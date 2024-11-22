@@ -37,7 +37,7 @@
         }
 
         /* Input Fields */
-        input {
+        input, select {
             width: 100%; /* Fill the container */
             padding: 10px; /* Adjust padding for compact layout */
             margin: 8px 0;
@@ -54,7 +54,7 @@
         }
 
         /* Golden Glow Effect on Focus */
-        input:focus {
+        input:focus, select:focus {
             outline: none; /* Remove default focus outline */
             border: 2px solid #f4c542; /* Golden border */
             box-shadow: 0 0 8px 2px rgba(244, 196, 66, 0.7); /* Golden glow around the input */
@@ -86,7 +86,7 @@
                 margin: 20px auto;
             }
 
-            input {
+            input, select {
                 padding: 8px; /* Reduce input padding */
                 font-size: 12px; /* Adjust input font size */
             }
@@ -105,6 +105,47 @@
             <input type="text" name="full-name" placeholder="Full Name" required><br><br>
             <input type="email" name="email" placeholder="Email" required><br><br>
             <input type="text" name="telegram-username" placeholder="Telegram Username" required><br><br>
+
+            <!-- Country Dropdown (Horn of Africa countries) -->
+            <select name="country" required>
+                <option value="">Select Country</option>
+                <option value="Ethiopia">Ethiopia</option>
+                <option value="Somalia">Somalia</option>
+                <option value="Eritrea">Eritrea</option>
+                <option value="Djibouti">Djibouti</option>
+            </select><br><br>
+
+            <!-- Province Dropdown (States of Ethiopia) -->
+            <select name="province" required>
+                <option value="">Select Province</option>
+                <option value="Amhara">Amhara</option>
+                <option value="Oromia">Oromia</option>
+                <option value="Tigray">Tigray</option>
+                <option value="Sidama">Sidama</option>
+                <option value="Afar">Afar</option>
+                <option value="Somali">Somali</option>
+                <option value="Benishangul-Gumuz">Benishangul-Gumuz</option>
+                <option value="Harari">Harari</option>
+            </select><br><br>
+
+            <!-- City (Open text field) -->
+            <input type="text" name="city" placeholder="City" required><br><br>
+
+            <!-- School (Open text field) -->
+            <input type="text" name="school" placeholder="School" required><br><br>
+
+            <!-- Grade Level (Dropdown) -->
+            <select name="grade-level" required>
+                <option value="">Select Grade Level</option>
+                <option value="7">Grade 7</option>
+                <option value="8">Grade 8</option>
+                <option value="9">Grade 9</option>
+                <option value="10">Grade 10</option>
+                <option value="11">Grade 11</option>
+                <option value="12">Grade 12</option>
+                <option value="university">University</option>
+            </select><br><br>
+
             <button type="submit">Next</button>
         </form>
     </div>
