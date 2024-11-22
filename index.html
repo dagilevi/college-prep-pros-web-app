@@ -29,9 +29,11 @@
         .loading-screen {
             text-align: center;
             padding: 20px;
+            width: 90%; /* Responsive width */
+            max-width: 400px; /* Limit width for larger screens */
             background: linear-gradient(145deg, #333, #555); /* Inner gradient for the logo container */
-            border-radius: 15px; /* Rounded edges */
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Professional shadow */
+            border-radius: 15px; /* Rounded edges for the container */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
         }
 
         /* Logo Styling */
@@ -45,12 +47,11 @@
 
         /* Welcome Text Styling */
         .welcome-text {
-            font-size: 1.2rem;
+            font-size: 1rem; /* Smaller text for mobile devices */
             font-weight: bold;
             color: #f4c542;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Fancy shadow */
             margin-top: 10px;
-            background: none; /* No background */
         }
 
         /* Fade-In Animation */
@@ -60,12 +61,12 @@
         }
 
         .loading-screen {
-            animation: fadeIn 1s ease-in-out; /* Apply animation */
+            animation: fadeIn 1s ease-in-out; /* Apply fade-in animation */
         }
     </style>
 </head>
 <body>
-    <!-- Inner Logo Container with Logo and Text -->
+    <!-- Inner Logo Container -->
     <div class="loading-screen">
         <img src="logo.png" alt="College Prep Pros Logo" class="logo">
         <p class="welcome-text">Welcome to the College Prep Pros – Since the Ivys</p>
@@ -74,7 +75,7 @@
     <script>
         // Extend logo page display duration
         setTimeout(() => {
-            window.location.href = "welcome.html"; // Redirect to welcome page
+            window.location.href = "welcome.html"; // Redirect to welcome page after 5 seconds
         }, 5000); // 5 seconds
     </script>
 </body>
