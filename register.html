@@ -2,9 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Remove duplicate meta tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <style>
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body and Background */
         body {
             font-family: Arial, sans-serif;
             background-color: #333;
@@ -12,42 +20,73 @@
             text-align: center;
             margin: 0;
             padding: 0;
-            height: 100%;  /* Ensures the body occupies full height */
-            overflow-x: hidden;  /* Prevent horizontal scrolling */
+            height: 100%;
+            width: 100%; /* Ensure it fits the screen width */
+            overflow-x: hidden; /* Prevent horizontal scrolling */
         }
+
+        /* Form Container */
         .form-container {
             background-color: #444;
-            padding: 30px;
+            padding: 20px; /* Adjust padding for smaller screens */
             border-radius: 8px;
-            width: 90%;  /* Adjust to fit smaller screens */
-            max-width: 400px;  /* Ensures it doesn't exceed 400px */
-            margin: 50px auto;
+            width: 90%; /* Flexible width for mobile screens */
+            max-width: 400px; /* Limit width for larger devices */
+            margin: 30px auto; /* Center with consistent spacing */
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
         }
+
+        /* Input Fields */
         input {
-            width: 100%;
-            padding: 8px;  /* Adjust padding for smaller inputs */
+            width: 100%; /* Fill the container */
+            padding: 10px; /* Adjust padding for compact layout */
             margin: 8px 0;
             border: 1px solid #f4c542;
             border-radius: 5px;
             background-color: #555;
             color: #f4c542;
-            font-size: 14px;  /* Smaller text for input */
+            font-size: 14px; /* Small font for mobile devices */
         }
+
         input::placeholder {
-            font-size: 12px;  /* Smaller placeholder text */
-            color: #aaa;  /* Lighter color for placeholder */
+            font-size: 12px; /* Smaller placeholder text */
+            color: #aaa;
         }
+
+        /* Button */
         button {
             background-color: #f4c542;
             color: #333;
-            padding: 12px 20px;
+            padding: 12px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            width: 100%; /* Full-width button */
+            max-width: 200px; /* Limit button width */
+            margin: 10px auto; /* Center the button */
+            display: block;
         }
+
         button:hover {
             background-color: #e0b534;
+        }
+
+        /* Media Query for Mobile Devices */
+        @media (max-width: 480px) {
+            .form-container {
+                padding: 15px; /* Reduce padding on small screens */
+                margin: 20px auto;
+            }
+
+            input {
+                padding: 8px; /* Reduce input padding */
+                font-size: 12px; /* Adjust input font size */
+            }
+
+            button {
+                font-size: 14px; /* Adjust button font size */
+                padding: 10px; /* Compact button padding */
+            }
         }
     </style>
 </head>
